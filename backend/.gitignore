@@ -20,6 +20,7 @@ yarn.lock
 medusa-db.sql
 build
 .cache
+pnpm-lock.yaml
 
 .yarn/*
 !.yarn/patches

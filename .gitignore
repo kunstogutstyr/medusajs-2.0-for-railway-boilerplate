@@ -1,2 +1,4 @@
 .idea/
 storefront/next-env.d.ts
+backend/pnpm-lock.yaml
+storefront/yarn.lock
