@@ -10,21 +10,22 @@ const Hero = () => {
             level="h1"
             className="text-3xl leading-10 text-ui-fg-base font-normal"
           >
-            Endelig testen fungerer! You have successfully deployed your Medusa 2.0 store on Railway!
+            Denne siden er under utvikling
           </Heading>
           <Heading
             level="h2"
             className="text-3xl leading-10 text-ui-fg-subtle font-normal"
           >
-            Need help customizing your store?
+          
+            Besøk gjerne
           </Heading>
         </span>
         <a
-          href="https://funkyton.com/medusajs-2-0-is-finally-here/"
+          href="https://kunstogutstyr.no"
           target="_blank"
         >
           <h1 style={{ textDecoration: "underline" }}>
-            Visit the tutorial
+            Kunstogutstyr.no
           </h1>
         </a>
       </div>
