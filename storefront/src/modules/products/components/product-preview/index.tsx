@@ -6,6 +6,7 @@ import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
 import { getProductsById } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
+import ProductActionsWrapper from "./product-actions-wrapper"
 
 export default async function ProductPreview({
   product,
@@ -30,23 +31,26 @@ export default async function ProductPreview({
   })
 
   return (
-    <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <div data-testid="product-wrapper">
-        <Thumbnail
-          thumbnail={product.thumbnail}
-          images={product.images}
-          size="full"
-          isFeatured={isFeatured}
-        />
-        <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle" data-testid="product-title">
-            {product.title}
-          </Text>
-          <div className="flex items-center gap-x-2">
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+    <div>                                                  
+      <LocalizedClientLink href={`/products/${product.handle}`} className="group">
+        <div data-testid="product-wrapper">
+          <Thumbnail
+            thumbnail={product.thumbnail}
+            images={product.images}
+            size="full"
+            isFeatured={isFeatured}
+          />
+          <div className="flex txt-compact-medium mt-4 justify-between">
+            <Text className="text-ui-fg-subtle" data-testid="product-title">
+              {product.title}
+            </Text>
+            <div className="flex items-center gap-x-2">
+              {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+            </div>
           </div>
         </div>
-      </div>
-    </LocalizedClientLink>
+      </LocalizedClientLink>
+      <ProductActionsWrapper product={pricedProduct} />    
+    </div>                                                 
   )
 }
