@@ -6,6 +6,22 @@ import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { useState } from "react"
 import Modal from "@modules/common/components/modal"
 
+const PreviewProductActions = ({ product }: { product: PricedProduct }) => {
+  const variant = product.variants[0]
+
+  return (
+    <Button 
+      onClick={() => {
+        // TODO: Implementer add-to-cart når vi har funnet riktig kontekst
+        console.log("Add to cart:", variant.id)
+      }}
+      className="w-full h-10"
+    >
+      Add to cart
+    </Button>
+  )
+}
+
 export default function ProductActionsWrapper({
   product,
 }: {
@@ -13,15 +29,12 @@ export default function ProductActionsWrapper({
 }) {
   const [showModal, setShowModal] = useState(false)
   
-  // Sjekk om produktet har varianter
   const hasVariants = product.variants.length > 1
 
   if (!hasVariants) {
-    // Hvis ingen varianter, vis bare kjøpsknappen
-    return <ProductActions product={product} />
+    return <PreviewProductActions product={product} />
   }
 
-  // Hvis produktet har varianter, vis "Velg variant" knapp og modal
   return (
     <>
       <Button 
